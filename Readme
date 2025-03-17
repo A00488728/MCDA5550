@@ -1,0 +1,29 @@
+# Weather App
+
+A simple mobile app built with React Native that allows users to view the current weather of a city, search for cities, and save their favorite cities' weather data locally using SQLite.
+
+## Features
+- Display the current weather for your location.
+- Search weather information for any city.
+- Save cities and access saved weather data.
+- SQLite database to store saved cities' weather data.
+
+## Technologies Used
+- **React Native**: Framework for building native mobile apps using JavaScript and React.
+- **Expo SQLite**: SQLite database for storing saved cities' weather data locally.
+- **React Navigation**: Library for navigation within the app, providing a bottom tab navigation system.
+- **Axios**: Promise-based HTTP client for fetching weather data from the OpenWeather API.
+- **React Native Paper**: Material Design components for building UI elements.
+- **Ionicons**: Icon library for displaying weather-related icons.
+
+## Requirements
+- Node.js installed on your machine.
+- Expo CLI installed globally.
+
+## Installation
+
+1. Clone this repository:
+
+```bash
+git clone https://github.com/yourusername/weather-app.git
+cd weather-app
