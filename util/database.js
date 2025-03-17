@@ -1,69 +1,8 @@
 import * as SQLite from 'expo-sqlite';
 
-let database1; // Declare the database variable
+let database; // Declare the database variable for weather data
 
-// Initialize the database and create the table if it doesn't exist
-export async function init1() {
-  try {
-    // Open the database asynchronously
-    database1 = await SQLite.openDatabaseAsync('text.db');
-
-    // Create the table if it doesn't exist
-    await database1.execAsync(`
-      CREATE TABLE IF NOT EXISTS text (
-        id INTEGER PRIMARY KEY NOT NULL,
-        title TEXT NOT NULL
-      )
-    `);
-    console.log('Table created or already exists.');
-  } catch (error) {
-    console.error('Error initializing the database:', error);
-    throw error;
-  }
-}
-
-// Insert data into the 'text' table
-export async function insertData(title) {
-  try {
-    const result = await database1.runAsync(
-      'INSERT INTO text (title) VALUES (?)', 
-      [title]
-    );
-    console.log('Inserted row:', result);
-    return result; // Return the result of the insertion
-  } catch (error) {
-    console.error('Error inserting data:', error);
-    throw error; // Propagate the error for handling in the caller
-  }
-}
-
-// Retrieve all data from the 'text' table
-export async function getAllData() {
-  try {
-    const result = await database1.getAllAsync('SELECT * FROM text');
-    console.log('Retrieved all data:', result);
-    return result; // Return the data
-  } catch (error) {
-    console.error('Error retrieving data:', error);
-    throw error; // Propagate the error for handling in the caller
-  }
-}
-
-// Insert data using the old insertText function (you can remove this if it's unnecessary)
-export async function insertText(title) {
-  try {
-    const result = await insertData(title); // Reusing the insertData function
-    return result;
-  } catch (error) {
-    console.error('Error inserting text:', error);
-    throw error;
-  }
-}
-
-
-let database; // Declare the database variable
-
-// Initialize the database and create the table if it doesn't exist
+// Initialize the database and create the table if it doesn't exist for weather data
 export async function init() {
   try {
     // Open the database asynchronously
@@ -79,9 +18,9 @@ export async function init() {
         humidity REAL NOT NULL
       )
     `);
-    console.log('Table created or already exists.');
+    console.log('Table created or already exists for saved cities.');
   } catch (error) {
-    console.error('Error initializing the database:', error);
+    console.error('Error initializing the database for weather data:', error);
     throw error;
   }
 }
